@@ -1,40 +1,53 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { getInputChangeAction,getBtnClickAction,getItemDelAction } from './store/actionCreator';
 
-class TodoList extends Component {
-  render() {
-    return (
+const TodoList = (props) => {
+  const { inputValue, list, changeInputValue, handleDelete, handleClick } = props;
+
+  return (
+    <div>
       <div>
-        <div>
-          <input value={this.props.inputValue} onChange={this.props.changeInputValue} />
-          <button>提交</button>
-        </div>
-        <ul>
-          <li>hello</li>
-        </ul>
+        <input value={inputValue} onChange={changeInputValue} />
+        <button onClick={handleClick}>提交</button>
       </div>
-    )
-  }
-
+      <ul>
+        {
+          list.map((item, index) => {
+            return <li onClick={() => {props.handleDelete(index)}} key={index}>{item}</li>
+          })
+        }
+      </ul>
+    </div>
+  )
 }
+
 
 const mapStateToProps = (state) => {
   return {
-    inputValue: state.inputValue
+    inputValue: state.inputValue,
+    list: state.list
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     changeInputValue(e) {
-      const action = {
-        type: 'change_input_value',
-        value: e.target.value
-      }
+      const action = getInputChangeAction(e.target.value);
       dispatch(action);
       //console.log(e.target.value);
+    },
+    handleClick() {
+      const action = getBtnClickAction();
+      dispatch(action);
+    },
+    handleDelete(index) {
+      const action = getItemDelAction(index);
+      dispatch(action);
     }
+
   }
+
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
