@@ -23,7 +23,7 @@ export const changePage = (page) => ({
   page
 })
 
-const changeList = (data) => ({
+ const changeList = (data) => ({
   type: constants.CHANGE_LIST,
   data: fromJS(data),
   totalPage: Math.ceil(data.length / 10)
