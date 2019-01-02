@@ -16,7 +16,7 @@ class List extends Component {
               <ListItem key={item.get('id')}>
                 <img className='pic' src={item.get('imgUrl')} alt='' />
                 <ListInfo>
-                  <h3 className='title'>{item.get('title')}</h3>
+                  <a className='title' href='/'>{item.get('title')}</a>
                   <p className='desc'>{item.get('desc')}</p>
                 </ListInfo>
               </ListItem>
@@ -31,4 +31,5 @@ class List extends Component {
 const mapState = (state) => ({
   list: state.getIn(['home', 'aritcleList'])
 })
+
 export default connect(mapState)(List);

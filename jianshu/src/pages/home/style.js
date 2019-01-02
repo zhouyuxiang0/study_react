@@ -70,7 +70,11 @@ export const ListInfo = styled.div`
     font-size: 18px;
     line-height: 27px;
     font-weight: bold;
-    color: #333
+    color: #333;
+    text-decoration: none;
+    &:hover {
+      text-decoration:underline;
+    }
   }
   .desc {
     line-height: 24px;
