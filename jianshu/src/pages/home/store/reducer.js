@@ -1,51 +1,19 @@
 import { fromJS } from 'immutable';
 
 const defaultState = fromJS({
-  topicList: [{
-    id: 1,
-    title: "社会热点",
-    imgUrl: ''
-  },{
-    id: 2,
-    title: '手绘',
-    imgUrl: ''
-  }],
-  aritcleList: [{
-    id: 1,
-    title: '最近一次蚂蚁金服Java面试经历！稳妥了！',
-    desc: '今天，我终于辞职了，即将告别6年的程序员生涯。 就在刚刚，微信群里，新晋的领导发出了研发中心的通讯录，让大家核对电话号码是否正确，陆续有同事更正...',
-    imgUrl: 'https://upload-images.jianshu.io/upload_images/11368879-d1a37c1d9456973f.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240'
-  },{
-    id: 2,
-    title: '最近一次蚂蚁金服Java面试经历！稳妥了！',
-    desc: '今天，我终于辞职了，即将告别6年的程序员生涯。 就在刚刚，微信群里，新晋的领导发出了研发中心的通讯录，让大家核对电话号码是否正确，陆续有同事更正...',
-    imgUrl: 'https://upload-images.jianshu.io/upload_images/11368879-d1a37c1d9456973f.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240'
-  },{
-    id: 3,
-    title: '最近一次蚂蚁金服Java面试经历！稳妥了！',
-    desc: '今天，我终于辞职了，即将告别6年的程序员生涯。 就在刚刚，微信群里，新晋的领导发出了研发中心的通讯录，让大家核对电话号码是否正确，陆续有同事更正...',
-    imgUrl: 'https://upload-images.jianshu.io/upload_images/11368879-d1a37c1d9456973f.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240'
-  },{
-    id: 4,
-    title: '最近一次蚂蚁金服Java面试经历！稳妥了！',
-    desc: '今天，我终于辞职了，即将告别6年的程序员生涯。 就在刚刚，微信群里，新晋的领导发出了研发中心的通讯录，让大家核对电话号码是否正确，陆续有同事更正...',
-    imgUrl: 'https://upload-images.jianshu.io/upload_images/11368879-d1a37c1d9456973f.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240'
-  }],
-  recommendList: [{
-    id: 1,
-    imgUrl: 'http://cdn2.jianshu.io/assets/web/banner-s-3-7123fd94750759acf7eca05b871e9d17.png'
-  },{
-    id: 2,
-    imgUrl: 'http://cdn2.jianshu.io/assets/web/banner-s-4-b70da70d679593510ac93a172dfbaeaa.png'
-  }]
+  topicList: [],
+  aritcleList: [],
+  recommendList: []
 });
 
 export default (state = defaultState, action) => {
   switch (action.type) {
-    case 'MouseEnter':
-      return state.set('mouseIn', true);
-    case 'MouseLeave':
-      return state.set('mouseIn', false);
+    case 'change_home_data':
+      return state.merge({
+        topicList: fromJS(action.topicList),
+        aritcleList: fromJS(action.aritcleList),
+        recommendList: fromJS(action.recommendList)
+      })
     default:
       return state;
   }
