@@ -5,7 +5,7 @@ class Writer extends Component {
   render() {
     return (
       <WriterWrapper>
-        homework
+        todo
       </WriterWrapper>
     )
   }
