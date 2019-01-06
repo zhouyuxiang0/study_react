@@ -15,14 +15,14 @@ const changeHomeData = (state, action) => {
     articleList: fromJS(action.articleList),
     recommendList: fromJS(action.recommendList)
   });
-}
+};
 
 const addArticleList = (state, action) => {
   return state.merge({
     articleList: fromJS(state.get('articleList').concat(action.list)),
     articlePage: action.nextPage
   });
-}
+};
 
 export default (state = defaultState, action) => {
   switch (action.type) {
@@ -35,4 +35,4 @@ export default (state = defaultState, action) => {
     default:
       return state;
   }
-}
+};

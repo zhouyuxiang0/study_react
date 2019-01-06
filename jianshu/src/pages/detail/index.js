@@ -8,6 +8,7 @@ import {
 } from './style';
 
 class Detail extends PureComponent {
+
   render() {
     return (
       <DetailWrapper>
@@ -20,6 +21,7 @@ class Detail extends PureComponent {
   componentDidMount() {
     this.props.getDetail(this.props.match.params.id);
   }
+
 }
 
 const mapState = (state) => ({
@@ -31,6 +33,6 @@ const mapDispatch = (dispatch) => ({
   getDetail(id) {
     dispatch(actionCreators.getDetail(id))
   }
-})
+});
 
 export default connect(mapState, mapDispatch)(Detail);

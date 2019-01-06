@@ -9,6 +9,7 @@ import {
 } from '../style';
 
 class List extends PureComponent {
+
   render() {
     const { list, getMoreList, page } = this.props;
     return (
@@ -30,6 +31,7 @@ class List extends PureComponent {
       </div>
     )
   }
+  
 }
 
 const mapState = (state) => ({

@@ -16,12 +16,12 @@ export const mouseEnter = () => ({
 
 export const mouseLeave = () => ({
   type: constants.MOUSE_LEAVE
-})
+});
 
 export const changePage = (page) => ({
   type: constants.CHANGE_PAGE,
   page
-})
+});
 
  const changeList = (data) => ({
   type: constants.CHANGE_LIST,
@@ -38,4 +38,4 @@ export const getList = () => {
       console.log('error');
     })
   }
-}
+};

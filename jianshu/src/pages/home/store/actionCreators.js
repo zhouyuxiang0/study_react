@@ -13,7 +13,7 @@ const addHomeList = (list, nextPage) => ({
   type: constants.ADD_ARTICLE_LIST,
   list: fromJS(list),
   nextPage
-})
+});
 
 export const getHomeInfo = () => {
   return (dispatch) => {
@@ -22,7 +22,7 @@ export const getHomeInfo = () => {
       dispatch(changeHomeData(result));
     });
   }
-}
+};
 
 export const getMoreList = (page) => {
   return (dispatch) => {
@@ -31,9 +31,9 @@ export const getMoreList = (page) => {
       dispatch(addHomeList(result, page + 1));
     });
   }
-}
+};
 
 export const toggleTopShow = (show) => ({
   type: constants.TOGGLE_SCROLL_TOP,
   show
-})
+});
