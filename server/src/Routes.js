@@ -3,11 +3,17 @@ import Login from './containers/Login';
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-
-
-export default (
-  <div>
-    <Route path='/' exact component={Home}></Route>
-    <Route path='/login' exact component={Login}></Route>
-  </div>
-)
+export default [
+  {
+    path: '/',
+    component: Home,
+    exact: true,
+    loadData: Home.loadData,
+    key: 'Home',
+  },{
+    path: '/login',
+    component: Login,
+    exact: true,
+    key: 'Login',
+  }
+];

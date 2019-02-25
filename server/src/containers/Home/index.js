@@ -27,6 +27,11 @@ class Home extends Component {
   }
 }
 
+Home.loadData = (store) => {
+  // 负责在服务器段渲染之前把这个路由需要的数据提前加载好
+  return store.dispatch(getHomeList());  // 接受promise并返回
+}
+
 const mapStateToProps = state => ({
   list: state.home.newsList,
   name: state.home.name
