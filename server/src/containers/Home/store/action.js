@@ -8,11 +8,11 @@ const changeList = (list) => ({
 })
 
 export const getHomeList = () => {
-  return (dispatch) => {  // 返回一个promise
+  return (dispatch) => {
     return axios.get('http://localhost:3000/news.json')
-    .then((res) => {
-      const list = res.data.data;
-      dispatch(changeList(list))
-    });
+      .then((res) => {
+        const list = res.data.data;
+        dispatch(changeList(list))
+      });
   }
 }
