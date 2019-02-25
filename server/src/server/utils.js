@@ -16,7 +16,6 @@ export const render = (req) => {
   const matchedRoutes = matchRoutes(routes, req.path);
 
   const promises = [];
-
   matchedRoutes.forEach(item => {
     if (item.route.loadData) {
       promises.push(item.route.loadData(store))
